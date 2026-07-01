@@ -1,12 +1,28 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import Classbased from "./components/Classbased";
+import FunctionalBased from "./components/FunctionalBased";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [classBased, setClassBased] = useState(false);
 
-  return <></>;
+  const handleClick = () => {
+    setClassBased(!classBased);
+  };
+
+  return (
+    <div className="app-container">
+      <h2>{classBased ? "Class Based code" : "Functional Based Code"}</h2>
+      <div className="code-container">
+        {classBased ? <Classbased /> : <FunctionalBased />}
+      </div>
+      <div className="button-container">
+        <button onClick={handleClick}>
+          {classBased ? "View Functional Based Code" : "View Class Based Code"}
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export default App;
